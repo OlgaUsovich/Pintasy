@@ -5,10 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./scss/index.scss">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="./scripts/index.js" defer></script>
-    <title>Document</title>
+    <title>Pintasy</title>
 </head>
 <body>
-    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta repellat recusandae placeat ipsa suscipit cum rerum. Ut, eum. Quidem deserunt, culpa quod praesentium dolor pariatur molestias soluta delectus harum natus.</h1>
+    <header id="header" class="m-3 d-flex justify-content-around">
+       <div class="header_logo m-1">
+           <img class="head_logo" src="./assets/pintasy-logo.png" alt="header_logo" width="32px">
+       </div>
+       <div class="main_btn m-1">
+           <button class="btn btn-dark fw-bold p">Главная</button>
+       </div>
+       <div class="input-group mb-3 m-1">
+        <span class="input-group-text" id="basic-addon1"><img src="./assets/earch.png" width="20px" alt=""></span>
+        <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="dropdown m-1" id="dropdown">
+        <a class="btn btn-secondary dropdown-toggle fw-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Выбор доски
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="item">
+          <li><a class="dropdown-item " href="#">Доска 1</a></li>
+          <li><a class="dropdown-item " href="#">Доска 2</a></li>
+          <li><a class="dropdown-item " href="#">Доска 3</a></li>
+        </ul>
+      </div>
+    </header>
 </body>
 </html>

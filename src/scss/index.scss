@@ -1,3 +1,2 @@
-body {
-    background-color: coral;
-}
+@use './config/reset.scss';
+@use './config/header.scss'

@@ -1,3 +1,1 @@
-const foo = () => {
-    return [1,2,3].map(x => x**2);
-}
+import { openDrop } from "./components/header.js";
