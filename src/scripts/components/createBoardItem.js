@@ -1,4 +1,4 @@
-const createDeskItem = (board) => {
+const createBoardItem = (board) => {
     const boardItem = createElement('li', 'dropdown-item')
     boardItem.id = board.id
     
@@ -6,9 +6,9 @@ const createDeskItem = (board) => {
     linkToBoardItem.href = '#'
     linkToBoardItem.textContent = upperCase(board.name)
 
-    boardItem.append(linkItemDesk)
+    boardItem.append(linkToBoardItem)
 
-    return item
+    return boardItem
 }
 
-export {createDeskItem}
+export {createBoardItem}
