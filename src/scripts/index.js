@@ -1,3 +1,7 @@
-const foo = () => {
-    return [1,2,3].map(x => x**2);
+import { openDrop, addDropdownListener } from "./components/header.js";
+
+init()
+
+function init () {
+    addDropdownListener()
 }
