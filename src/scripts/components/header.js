@@ -1,13 +1,13 @@
-const listItem = document.querySelector('#item')
-const header = document.querySelector('#header')
-
-
 const openDrop = ({target}) => {
-    if(target.id === 'dropdownMenuLink') {
-        listItem.classList.toggle('active')
+    const bordsMenuItem = document.querySelector('#dropdown-list-item')
+    if(target.id === 'dropdown-menu-link') {
+        bordsMenuItem.classList.toggle('active')
     }
 }
 
-header.addEventListener('click', openDrop)
+const addDropdownListener = () => {
+    const header = document.querySelector('#header')
+    header.addEventListener('click', openDrop)
+}
 
-export {openDrop}
+export {openDrop, addDropdownListener}
