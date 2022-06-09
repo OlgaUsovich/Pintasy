@@ -3,7 +3,7 @@ import cardsJson from "../data/cards.json";
 import boardsJson from "../data/boards.json";
 import { getStorageData, setStorageData } from "./localStorageApi/localStorageApi.js";
 
-init()
+init();
 
 function init () {
     addDropdownListener()
