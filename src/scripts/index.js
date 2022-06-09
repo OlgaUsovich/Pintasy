@@ -1,7 +1,7 @@
-import { openDrop, addDropdownListener } from "./components/header.js";
+import { addDropdownListener } from "./components/header.js";
 
-init()
+init();
 
-function init () {
-    addDropdownListener()
+function init() {
+  addDropdownListener();
 }
