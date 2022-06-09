@@ -1,10 +1,7 @@
-import { openDrop, addDropdownListener } from "./components/header.js";
-import { createElement, upperCase } from "./components/utils/helpers/helpers.js"
-import { createBoardItem } from "./components/createBoardItem.js"
+import { addDropdownListener } from "./components/header.js";
 
-init()
+init();
 
-function init () {
-    addDropdownListener()
+function init() {
+  addDropdownListener();
 }
-
