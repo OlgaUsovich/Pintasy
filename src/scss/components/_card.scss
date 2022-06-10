@@ -1,0 +1,28 @@
+#card {
+    position: relative;
+    max-width: 20rem;
+}
+
+#menuBtn {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 55%;
+    left: 80%;
+    border-radius: 50%;
+    border: none;
+    background: aquamarine;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+#ava {
+    width: 5rem;
+    border-radius: 50%;
+}
+
+#text {
+    position: absolute;
+    top: 15rem;
+    left: 5rem;
+}
