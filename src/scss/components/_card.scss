@@ -1,14 +1,19 @@
-#card {
-    position: relative;
-    max-width: 20rem;
+.card {
+    max-width: 15rem;
 }
 
-#menuBtn {
+.image {
+    max-width: 20rem;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.menuBtn {
     width: 2rem;
     height: 2rem;
     position: absolute;
-    top: 55%;
-    left: 80%;
+    bottom: 75%;
+    right: 70%;
     border-radius: 50%;
     border: none;
     background: aquamarine;
@@ -16,13 +21,16 @@
     cursor: pointer;
 }
 
-#ava {
-    width: 5rem;
+.ava {
+    position: absolute;
+    top: 27%;
+    left: 0%;
+    width: 4rem;
     border-radius: 50%;
 }
 
-#text {
+.text {
     position: absolute;
-    top: 15rem;
-    left: 5rem;
+    top: 29%;
+    left: 8%;
 }
