@@ -1,4 +1,4 @@
-import { createElement, toTitleCase } from "./utils/helpers/helpers.js";
+import { createElement, toCapitalizeCase } from "./utils/helpers/helpers.js";
 
 const createBoardItem = (board) => {
   const boardItem = createElement("li", "dropdown-item");
@@ -6,7 +6,7 @@ const createBoardItem = (board) => {
 
   const linkToBoardItem = createElement("a", "link-desk-item-1");
   linkToBoardItem.href = "#";
-  linkToBoardItem.textContent = toTitleCase(board.name);
+  linkToBoardItem.textContent = toCapitalizeCase(board.name);
 
   boardItem.append(linkToBoardItem);
 
