@@ -1,18 +1,21 @@
 import { createElement } from "./utils/helpers/helpers.js";
 
 function createCard(cardData) {
-    const card = createElement('div', 'card');
-    const image = createElement('img', 'image', cardData.image)
-    const menuBtn = createElement('button', 'menuBtn');
-    const avatar = createElement('img', 'ava', cardData.avatar)
-    const description = createElement('span', 'text', cardData.description)
+    const card = createElement('div', 'm-2 card-item');
+    const imageContainer = createElement('div', 'position-relative');
+    const image = createElement('img', 'card-image rounded-4', cardData.image)
+    const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
+    const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
+    const avatar = createElement('img', 'card-avatar rounded-circle', cardData.avatar)
+    const description = createElement('span', 'card-description', cardData.description)
 
     image.src = cardData.image;
     avatar.src = cardData.avatar;
     description.src = document.createTextNode(cardData.description);
-    card.id = cardData.id;
 
-    card.append(image, menuBtn, avatar, description);
+    imageContainer.append(image, menuBtn);
+    descriptionContainer.append(avatar, description);
+    card.append(imageContainer, descriptionContainer);
 
     return card
 }

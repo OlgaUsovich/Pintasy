@@ -1,36 +1,27 @@
-.card {
+.card-item {
     max-width: 15rem;
 }
 
-.image {
-    max-width: 20rem;
-    height: auto;
+.card-image {
+    max-width: 15rem;
+    height: 20rem;
     border-radius: 1rem;
 }
 
-.menuBtn {
+.modal-menu {
     width: 2rem;
     height: 2rem;
-    position: absolute;
-    bottom: 75%;
-    right: 70%;
-    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
     border: none;
-    background: aquamarine;
-    opacity: 80%;
     cursor: pointer;
 }
 
-.ava {
-    position: absolute;
-    top: 27%;
-    left: 0%;
-    width: 4rem;
-    border-radius: 50%;
+.card-avatar {
+    max-width: 4rem;
+    max-height: 4rem;
 }
 
-.text {
-    position: absolute;
-    top: 29%;
-    left: 8%;
+.card-description {
+    font-family: 'Roboto', sans-serif;
 }
