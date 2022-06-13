@@ -1,6 +1,6 @@
 import { createElement, capitalize } from "./utils/helpers/helpers.js";
 
-function createBoardItem (board) {
+function createBoardItem(board) {
   const boardItem = createElement("li", "");
   boardItem.id = board.id;
 
@@ -11,14 +11,14 @@ function createBoardItem (board) {
   boardItem.append(linkToBoardItem);
 
   return boardItem;
-};
+}
 
 function renderBoards(boards) {
-  const boardList = document.querySelector('#dropdown-list')
+  const boardList = document.querySelector("#dropdown-list");
   for (const board of boards) {
-      const boardItem = createBoardItem(board)
-      boardList.append(boardItem)
+    const boardItem = createBoardItem(board);
+    boardList.append(boardItem);
   }
 }
 
-export { createBoardItem, renderBoards};
+export { createBoardItem, renderBoards };

@@ -1,21 +1,21 @@
 import { addDropdownListener } from "./components/header.js";
 import cardsJson from "../data/cards.json";
 import boardsJson from "../data/boards.json";
-import { renderBoards } from "./components/createBoardItems.js";
-import { getStorageData, setStorageData } from "./localStorageApi/localStorageApi.js";
+import { renderBoards } from "./components/boards.js";
+import { getStorageData, setStorageData} from "./localStorageApi/localStorageApi.js";
 
 init();
 
-function init () {
-    addDropdownListener()
+function init() {
+  addDropdownListener();
 
-    if(!getStorageData('cards')){
-        setStorageData('cards', cardsJson);
-    }
+  if (!getStorageData("cards")) {
+    setStorageData("cards", cardsJson);
+  }
 
-    if(!getStorageData('boards')){
-        setStorageData('boards', boardsJson)
-    }
-    const boards = getStorageData('boards')
-    renderBoards(boards)
+  if (!getStorageData("boards")) {
+    setStorageData("boards", boardsJson);
+  }
+  const boards = getStorageData("boards");
+  renderBoards(boards);
 }
