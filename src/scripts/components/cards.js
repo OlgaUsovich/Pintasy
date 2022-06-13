@@ -1,4 +1,5 @@
 import { createElement } from "./utils/helpers/helpers.js";
+import { getStorageData } from "../localStorageApi/localStorageApi.js"
 
 function createCard(cardData) {
     const card = createElement('div', 'm-2 card-item');
@@ -20,4 +21,17 @@ function createCard(cardData) {
     return card
 }
 
-export { createCard }
+function renderCards(cards) {
+    const cards = getStorageData();
+    const cardsContainer = document.querySelector('.container');
+    const cardsLocation = createElement('div', 'row row-cols-lg-5 row-cols-sm-2 row-cols-md-3');
+    cardsContainer.append(cardsLocation);
+
+    cards.forEach(cards => {
+        if (hidder.src) {
+            cardsLocation.append(createCard(cards));
+        }
+    })
+}
+
+export { createCard, renderCards }
