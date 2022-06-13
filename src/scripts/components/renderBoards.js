@@ -1,22 +1,7 @@
 import { createBoardItem } from "./createBoardItem.js"
+import { getStorageData } from "../localStorageApi/localStorageApi.js"
 
-const dataItem = [
-    {
-      "cardsIds": [],
-      "name": "vel ut et",
-      "id": "1"
-    },
-    {
-      "cardsIds": [],
-      "name": "est numquam cumque",
-      "id": "2"
-    },
-    {
-      "cardsIds": [],
-      "name": "maxime tempore ut",
-      "id": "3"
-    }
-  ]
+const boards = getStorageData('boards')
 
 
 function renderBoards(boards) {
@@ -28,4 +13,4 @@ function renderBoards(boards) {
     console.log(boardList)
 }
 
-export {renderBoards, dataItem}
+export {renderBoards, boards}
