@@ -4,8 +4,8 @@ const createElement = (tag, className, text = "") => {
   element.textContent = text;
 };
 
-const toCapitalizeCase = (str) => {
+const capitalize = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 };
 
-export { createElement, toCapitalizeCase };
+export { createElement, capitalize };
