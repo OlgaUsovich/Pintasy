@@ -1,0 +1,27 @@
+.card-item {
+    max-width: 15rem;
+}
+
+.card-image {
+    max-width: 15rem;
+    height: 20rem;
+    border-radius: 1rem;
+}
+
+.modal-menu {
+    width: 2rem;
+    height: 2rem;
+    bottom: 5%;
+    right: 5%;
+    border: none;
+    cursor: pointer;
+}
+
+.card-avatar {
+    max-width: 4rem;
+    max-height: 4rem;
+}
+
+.card-description {
+    font-family: 'Roboto', sans-serif;
+}
