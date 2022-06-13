@@ -1,4 +1,4 @@
-import { createElement } from "./utils/helpers/helpers.js";
+import { createElement } from "../utils/helpers/helpers.js";
 
 function createCard(cardData) {
     const card = createElement('div', 'm-2 card-item');

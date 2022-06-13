@@ -1,4 +1,4 @@
-import { URL_BOARDS } from "./constantLinks.js";
+import { URL_BOARDS } from "../components/utils/constants.js";
 
 function getMockData(link, renderFunction) {
   fetch(link)
@@ -6,5 +6,4 @@ function getMockData(link, renderFunction) {
     .then(renderFunction);
 }
 
-getMockData(URL_BOARDS);
 export { getMockData, URL_BOARDS };
