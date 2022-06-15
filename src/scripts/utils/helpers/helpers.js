@@ -3,7 +3,7 @@ const createElement = (tag, className, text = "") => {
   element.classList = className;
   element.textContent = text;
 
-  return element
+  return element;
 };
 
 const capitalize = (str) => {

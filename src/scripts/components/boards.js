@@ -1,4 +1,4 @@
-import { createElement, capitalize } from "./utils/helpers/helpers.js";
+import { createElement, capitalize } from "../utils/helpers/helpers.js";
 
 function createBoardItem(board) {
   const boardItem = createElement("li", "");

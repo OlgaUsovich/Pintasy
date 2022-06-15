@@ -1,4 +1,4 @@
-import { createElement } from "./utils/helpers/helpers.js";
+import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js"
 
 function createCard(cardData) {
