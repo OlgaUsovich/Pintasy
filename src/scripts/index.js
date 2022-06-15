@@ -16,6 +16,9 @@ function init() {
   if (!getStorageData("boards")) {
     setStorageData("boards", boardsJson);
   }
+  if (!getStorageData("hidden")) {
+    setStorageData("hidden", [])
+  }
   const boards = getStorageData("boards");
   renderBoards(boards);
 }

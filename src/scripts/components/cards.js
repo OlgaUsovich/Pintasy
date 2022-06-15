@@ -12,7 +12,7 @@ function createCard(cardData) {
 
     image.src = cardData.image;
     avatar.src = cardData.avatar;
-    description.src = document.createTextNode(cardData.description);
+    description = document.createTextNode(cardData.description);
 
     imageContainer.append(image, menuBtn);
     descriptionContainer.append(avatar, description);
@@ -22,14 +22,13 @@ function createCard(cardData) {
 }
 
 function renderCards(cards) {
-    const cards = getStorageData();
-    const cardsContainer = document.querySelector('.container');
-    const cardsLocation = createElement('div', 'row row-cols-lg-5 row-cols-sm-2 row-cols-md-3');
-    cardsContainer.append(cardsLocation);
+    const cards = getStorageData(cards);
+    const cardsContainer = document.getElement('#cards');
+    cardsContainer.classList.add('row row-cols-lg-5 row-cols-sm-2 row-cols-md-3')
 
-    cards.forEach(cards => {
-        if (hidder.src) {
-            cardsLocation.append(createCard(cards));
+    cards.forEach(card => {
+        if (!card.hidden) {
+            cardsContainer.append(createCard(card));
         }
     })
 }
