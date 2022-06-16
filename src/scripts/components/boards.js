@@ -1,3 +1,4 @@
+import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { createElement, capitalize } from "../utils/helpers/helpers.js";
 
 function createBoardItem(board) {
@@ -18,6 +19,15 @@ function renderBoards(boards) {
     const boardItem = createBoardItem(board);
     boardList.append(boardItem);
   }
+}
+
+function onBoardClick({target}) {
+  const boards = getStorageData("boards");
+  const board = boards.find(board => board.id === target.parentElement.id);
+  const cards = getStorageData("cards");
+  const boardCards = cards.filter(card => board.cardsIds.includes(card.id));
+  renderCards(boardCards);
+
 }
 
 export { createBoardItem, renderBoards };
