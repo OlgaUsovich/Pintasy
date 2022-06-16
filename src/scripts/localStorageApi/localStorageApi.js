@@ -12,9 +12,11 @@ const setTestData = () => {
   if (!getStorageData("cards")) {
     setStorageData("cards", cardsJson);
   }
-
   if (!getStorageData("boards")) {
     setStorageData("boards", boardsJson);
+  }
+  if (!getStorageData("hidden")) {
+    setStorageData("hidden", ["1"])
   }
 }
 
