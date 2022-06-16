@@ -26,7 +26,7 @@ function renderCards(cards) {
     const cardsContainer = document.getElement('#cards');
     cardsContainer.classList.add('row row-cols-lg-5 row-cols-sm-2 row-cols-md-3')
 
-    cards.forEach(card => {
+    cards.filter(card => {
         if (!card.hidden) {
             cardsContainer.append(createCard(card));
         }
