@@ -8,4 +8,14 @@ const setStorageData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export { getStorageData, setStorageData };
+const setTestData = () => {
+  if (!getStorageData("cards")) {
+    setStorageData("cards", cardsJson);
+  }
+
+  if (!getStorageData("boards")) {
+    setStorageData("boards", boardsJson);
+  }
+}
+
+export { getStorageData, setStorageData, setTestData };
