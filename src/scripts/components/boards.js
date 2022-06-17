@@ -9,7 +9,6 @@ function createBoardItem(board) {
   linkToBoardItem.textContent = capitalize(board.name);
 
   boardItem.append(linkToBoardItem);
-
   return boardItem;
 }
 

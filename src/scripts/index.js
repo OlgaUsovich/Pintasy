@@ -9,9 +9,7 @@ init();
 function init() {
   addDropdownListener();
 
-  if (!getStorageData("cards")) {
-    setStorageData("cards", cardsJson);
-  }
+  setTestData()
 
   if (!getStorageData("boards")) {
     setStorageData("boards", boardsJson);
@@ -20,5 +18,6 @@ function init() {
     setStorageData("hidden", [])
   }
   const boards = getStorageData("boards");
+
   renderBoards(boards);
 }
