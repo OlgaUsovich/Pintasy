@@ -2,8 +2,8 @@ import { addDropdownListener } from "./components/header.js";
 import cardsJson from "../data/cards.json";
 import boardsJson from "../data/boards.json";
 import { renderBoards } from "./components/boards.js";
-import { renderCards } from "./components/cards.js";
-import { getStorageData, setStorageData } from "./localStorageApi/localStorageApi.js";
+import { renderCards } from "./components/Сards.js";
+import { getStorageData, setStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
 
 init();
 

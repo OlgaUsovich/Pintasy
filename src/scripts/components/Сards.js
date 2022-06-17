@@ -8,12 +8,11 @@ function createCard(cardData) {
     const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle');
-    const description = createElement('span', 'card-description');
+    const description = createElement('span', 'card-description', cardData.description);
 
     card.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
-    description = document.createTextNode(cardData.description);
 
     imageContainer.append(image, menuBtn);
     descriptionContainer.append(avatar, description);

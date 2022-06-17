@@ -3,13 +3,12 @@
 }
 
 .card-image {
-    max-width: 240px;
-    height: 320px;
+    width: 100%;
 }
 
 .modal-menu {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     bottom: 5%;
     right: 5%;
     border: none;
@@ -17,6 +16,6 @@
 }
 
 .card-avatar {
-    max-width: 64px;
-    max-height: 64px;
+    max-width: 3rem;
+    max-height: 3rem;
 }
