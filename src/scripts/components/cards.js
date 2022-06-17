@@ -1,7 +1,7 @@
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 
-function createCard( {cardData} ) {
+function createCard({ cardData }) {
     const card = createElement('div', 'm-2 card-item');
     const imageContainer = createElement('div', 'position-relative');
     const image = createElement('img', 'card-image rounded-4');
@@ -10,6 +10,7 @@ function createCard( {cardData} ) {
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description');
 
+    card.id = id;
     image.src = image;
     avatar.src = avatar;
     description = document.createTextNode(description);
@@ -22,12 +23,14 @@ function createCard( {cardData} ) {
 }
 
 function renderCards(cards) {
-    const cards = getStorageData(cards);
-    const cardsContainer = document.getElement('#cards');
-    cardsContainer.classList.add('row row-cols-lg-5 row-cols-sm-2 row-cols-md-3')
+    const cardsContainer = document.getElementById('cards');
+    while (cardsContainer.firstChild) {
+        cardsContainer.removeChild(cardsContainer.firstChild);
+    }
+    const hiddenCards = getStorageData("hidden");
 
-    cards.filter(card => {
-        if (!card.hidden) {
+    cards.forEach(card => {
+        if (!hiddenCards.includes(card.id)) {
             cardsContainer.append(createCard(card));
         }
     })
