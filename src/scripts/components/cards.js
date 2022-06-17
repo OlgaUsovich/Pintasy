@@ -2,7 +2,7 @@ import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 
 function createCard({ cardData }) {
-    const card = createElement('div', 'm-2 card-item');
+    const card = createElement('div', 'p-2 card-item');
     const imageContainer = createElement('div', 'position-relative');
     const image = createElement('img', 'card-image rounded-4');
     const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
