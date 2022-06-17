@@ -1,3 +1,6 @@
+import cardsJson from "../../data/cards.json";
+import boardsJson from "../../data/boards.json";
+
 const getStorageData = (key) => {
   const storageData = JSON.parse(localStorage.getItem(key));
 
