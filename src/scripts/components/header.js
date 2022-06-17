@@ -10,4 +10,13 @@ const addDropdownListener = () => {
   header.addEventListener("click", openDrop);
 };
 
-export { addDropdownListener };
+function onSearchCards(event) {
+  const cards = getStorageData(cards);
+  const search = document.querySelector('#input-header');
+  const searchText = includes(search.value.toLowerCase());
+  const searchCards = cards.filter((card) => card.text.toLowerCase().search(searchText) != -1)
+
+  render(searchCards)
+}
+
+export { addDropdownListener, onSearchCards };
