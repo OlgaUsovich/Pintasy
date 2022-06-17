@@ -1,7 +1,7 @@
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 
-function createCard({ cardData }) {
+function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
     const imageContainer = createElement('div', 'position-relative');
     const image = createElement('img', 'card-image rounded-4');
@@ -10,10 +10,10 @@ function createCard({ cardData }) {
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description');
 
-    card.id = id;
-    image.src = image;
-    avatar.src = avatar;
-    description = document.createTextNode(description);
+    card.id = cardData.id;
+    image.src = cardData.image;
+    avatar.src = cardData.avatar;
+    description = document.createTextNode(cardData.description);
 
     imageContainer.append(image, menuBtn);
     descriptionContainer.append(avatar, description);
