@@ -9,22 +9,20 @@ import {
 import { addDropdownListener } from "./components/Header.js";
 import { renderBoards } from "./components/Boards.js";
 import { setTestData, getStorageData } from "./localStorageApi/localStorageApi.js";
+import { renderBoards } from "./components/boards.js";
+import { renderCards } from "./components/Сards.js";
+import { getStorageData, setStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
 
 init();
 
 function init() {
   addDropdownListener();
 
-  if (!getStorageData("cards")) {
-    setStorageData("cards", cards);
-  }
-
-  if (!getStorageData("boards")) {
-    setStorageData("boards", board);
-  }
-  setTestData()
+  setTestData();
 
   const boards = getStorageData("boards");
+  const cards = getStorageData("cards");
 
   renderBoards(boards);
+  renderCards(cards);
 }
