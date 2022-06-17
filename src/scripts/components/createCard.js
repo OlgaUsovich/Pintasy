@@ -11,7 +11,7 @@ function createCard(cardData) {
     const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle', cardData.avatar)
-    const description = createElement('span', 'card-description', cardData.description)
+    const description = createElement('span', '', cardData.description)
 
     image.src = cardData.image;
     avatar.src = cardData.avatar;

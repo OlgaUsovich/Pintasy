@@ -6,6 +6,9 @@ import {
   getStorageData,
   setStorageData,
 } from "./localStorageApi/localStorageApi.js";
+import { addDropdownListener } from "./components/Header.js";
+import { renderBoards } from "./components/Boards.js";
+import { setTestData, getStorageData } from "./localStorageApi/localStorageApi.js";
 
 init();
 
@@ -19,6 +22,9 @@ function init() {
   if (!getStorageData("boards")) {
     setStorageData("boards", board);
   }
+  setTestData()
+
   const boards = getStorageData("boards");
+
   renderBoards(boards);
 }
