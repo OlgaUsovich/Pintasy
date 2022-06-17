@@ -1,5 +1,5 @@
 import { createElement } from "../utils/helpers/helpers.js";
-import { getStorageData } from "../localStorageApi/localStorageApi.js";
+import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 
 function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
@@ -35,4 +35,16 @@ function renderCards(cards) {
     })
 }
 
-export { createCard, renderCards }
+function addCardToBoard(cardId, boardId) {
+    const boards = getStorageData('boards');
+  
+    boards.forEach(board => {
+        if(board.id === boardId){
+            board.cardsIds.push(cardId);
+        }
+    })
+
+    setStorageData('boards', boards);
+}
+
+export { createCard, renderCards, addCardToBoard }
