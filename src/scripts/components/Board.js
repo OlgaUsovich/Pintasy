@@ -8,7 +8,7 @@ function createBoardItem(board) {
 
   const linkToBoardItem = createElement("a", "dropdown-item");
   linkToBoardItem.href = "#";
-  linkToBoardItem.id = "dropdown-menu-link";
+  linkToBoardItem.id = "dropdown-menu-btn";
   linkToBoardItem.textContent = capitalize(board.name);
 
   boardItem.append(linkToBoardItem);
