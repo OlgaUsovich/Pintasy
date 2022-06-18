@@ -1,6 +1,6 @@
 const openDrop = ({ target }) => {
   const bordsMenuItem = document.querySelector("#dropdown-list");
-  if (target.id === "dropdown-menu-link") {
+  if (target.id === "dropdown-menu-btn") {
     bordsMenuItem.classList.toggle("d-block");
   }
 };

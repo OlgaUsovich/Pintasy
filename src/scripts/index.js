@@ -1,7 +1,11 @@
 import { addDropdownListener } from "./components/header.js";
-import { renderBoards } from "./components/boards.js";
+import { renderBoards, addClickBoardItem } from "./components/boards.js";
 import { renderCards } from "./components/Сards.js";
-import { getStorageData, setStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
+import {
+  getStorageData,
+  setStorageData,
+  setTestData,
+} from "./localStorageApi/localStorageApi.js";
 
 init();
 
