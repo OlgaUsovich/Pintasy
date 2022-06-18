@@ -1,7 +1,7 @@
-import { addHeaderListeners } from "./components/header.js";
-import { renderBoards } from "./components/boards.js";
+import { addHeaderListeners } from "./components/Header.js";
+import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
-import { getStorageData, setStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
+import { getStorageData,setTestData } from "./localStorageApi/localStorageApi.js";
 
 init();
 
