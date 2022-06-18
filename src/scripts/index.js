@@ -1,18 +1,19 @@
 import { addHeaderListeners } from "./components/Header.js";
 import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
-import { getStorageData,setTestData } from "./localStorageApi/localStorageApi.js";
+import { getStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
+import { BOARDS, CARDS } from "./localStorageApi/constants.js";
 
 init();
 
 function init() {
-  addHeaderListeners();
+    addHeaderListeners();
 
-  setTestData();
+    setTestData();
 
-  const boards = getStorageData("boards");
-  const cards = getStorageData("cards");
+    const boards = getStorageData(BOARDS);
+    const cards = getStorageData(CARDS);
 
-  renderBoards(boards);
-  renderCards(cards);
+    renderBoards(boards);
+    renderCards(cards);
 }
