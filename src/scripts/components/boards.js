@@ -12,7 +12,7 @@ function createBoardItem(board) {
   linkToBoardItem.textContent = capitalize(board.name);
 
   boardItem.append(linkToBoardItem);
-  
+  boardItem.addEventListener("click", onBoardClick);
   return boardItem;
 }
 
