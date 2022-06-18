@@ -1,4 +1,4 @@
-import { addDropdownListener } from "./components/Header.js";
+import { addHeaderListeners } from "./components/Header.js";
 import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
 import { getStorageData,setTestData } from "./localStorageApi/localStorageApi.js";
@@ -6,7 +6,7 @@ import { getStorageData,setTestData } from "./localStorageApi/localStorageApi.js
 init();
 
 function init() {
-  addDropdownListener();
+  addHeaderListeners();
 
   setTestData();
 
