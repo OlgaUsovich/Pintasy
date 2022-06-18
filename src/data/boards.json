@@ -1,17 +1,17 @@
 [
-    {
-      "cardsIds": [],
-      "name": "vel ut et",
-      "id": "1"
-    },
-    {
-      "cardsIds": [],
-      "name": "est numquam cumque",
-      "id": "2"
-    },
-    {
-      "cardsIds": [],
-      "name": "maxime tempore ut",
-      "id": "3"
-    }
+  {
+    "cardsIds": ["1", "2", "4", "5"],
+    "name": "Animals",
+    "id": "1"
+  },
+  {
+    "cardsIds": ["3", "6"],
+    "name": "Abstract",
+    "id": "2"
+  },
+  {
+    "cardsIds": ["7", "8", "9", "10", "11", "12"],
+    "name": "Nature",
+    "id": "3"
+  }
 ]
