@@ -1,5 +1,5 @@
 import { addDropdownListener } from "./components/header.js";
-import { renderBoards } from "./components/boards.js";
+import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
 import { getStorageData,setTestData } from "./localStorageApi/localStorageApi.js";
 
