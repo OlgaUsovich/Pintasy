@@ -9,12 +9,17 @@ function createCard(cardData) {
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description', cardData.description);
+    const cardMenu = createElement('div', 'card-menu d-none bg-secondary position-absolute rounded-4 p-3 bg-opacity-75 d-flex flex-column justify-content-center align-items-stretch gap-3');
+    const addBtn = createElement('button', 'btn btn-outline-secondary','Добавить на доску');
+    const complaintBtn = createElement('button', 'btn btn-outline-secondary','Пожаловаться');
+
 
     card.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
 
-    imageContainer.append(image, menuBtn);
+    cardMenu.append(addBtn, complaintBtn);
+    imageContainer.append(image, menuBtn, cardMenu);
     descriptionContainer.append(avatar, description);
     card.append(imageContainer, descriptionContainer);
 
