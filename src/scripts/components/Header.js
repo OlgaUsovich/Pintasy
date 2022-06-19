@@ -1,4 +1,3 @@
-import { CARDS } from "../localStorageApi/constants.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { renderCards } from "./Сards.js";
 import { getCards } from "../mockApi/mockApi.js";
@@ -18,11 +17,10 @@ const addHeaderListeners = () => {
 };
 
 function onSearchInput(event) {
-  const cards = getStorageData(CARDS);
   const search = document.querySelector("#input-header>input");
   const searchText = search.value.toLowerCase();
   getCards(URL_CARDS)
-    .then(
+    .then(cards =>
       cards.filter(
         (card) => card.description.toLowerCase().search(searchText) !== -1
       )
