@@ -1,9 +1,15 @@
-import { URL_BOARDS } from "../components/utils/constants.js";
+const getCards = (url) =>
+  new Promise((resolve, reject) =>
+    fetch(url)
+      .then((response) => {
+        if (response.status === 404) {
+          reject(new Error("Page not found"));
+        } else if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => resolve(data))
+      .catch((error) => reject(error))
+  );
 
-function getMockData(link, renderFunction) {
-  fetch(link)
-    .then((res) => res.json())
-    .then(renderFunction);
-}
-
-export { getMockData, URL_BOARDS };
+export { getCards };

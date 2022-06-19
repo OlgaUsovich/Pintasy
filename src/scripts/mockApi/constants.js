@@ -1,3 +1,3 @@
-const URL_BOARDS = "https://629d1c863798759975e02df8.mockapi.io/boards";
+const URL_CARDS = "https://629d1c863798759975e02df8.mockapi.io/cards";
 
-export { URL_BOARDS };
+export { URL_CARDS };

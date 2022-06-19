@@ -1,18 +1,21 @@
-import { addDropdownListener } from "./components/header.js";
-import { renderBoards } from "./components/boards.js";
+import { addHeaderListeners } from "./components/Header.js";
+import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
-import { getStorageData, setStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
+import { getStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
+import { BOARDS } from "./localStorageApi/constants.js";
+import { getCards } from "./mockApi/mockApi.js"
+import { URL_CARDS } from "./mockApi/constants.js";
 
 init();
 
 function init() {
-  addDropdownListener();
+    addHeaderListeners();
 
-  setTestData();
+    setTestData();
 
-  const boards = getStorageData("boards");
-  const cards = getStorageData("cards");
+    const boards = getStorageData(BOARDS);
 
-  renderBoards(boards);
-  renderCards(cards);
+    renderBoards(boards);
+    getCards(URL_CARDS)
+     .then(renderCards)
 }
