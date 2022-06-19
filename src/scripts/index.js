@@ -5,6 +5,8 @@ import { getStorageData, setTestData } from "./localStorageApi/localStorageApi.j
 import { BOARDS } from "./localStorageApi/constants.js";
 import { getCards } from "./mockApi/mockApi.js"
 import { URL_CARDS } from "./mockApi/constants.js";
+import { addMansoryLayout } from "./utils/helpers/helpers";
+
 
 init();
 
@@ -18,4 +20,5 @@ function init() {
     renderBoards(boards);
     getCards(URL_CARDS)
      .then(renderCards)
+     .then(addMansoryLayout)
 }

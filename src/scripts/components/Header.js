@@ -1,5 +1,6 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { renderCards } from "./Сards.js";
+import { addMansoryLayout } from "../utils/helpers/helpers";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 
@@ -25,7 +26,8 @@ function onSearchInput(event) {
         (card) => card.description.toLowerCase().search(searchText) !== -1
       )
     )
-    .then(renderCards);
+    .then(renderCards)
+    .then(addMansoryLayout);
 }
 
 export { addHeaderListeners, onSearchInput };
