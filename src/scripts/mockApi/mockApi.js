@@ -3,8 +3,8 @@ const getCards = (url) =>
     fetch(url)
       .then((response) => {
         if (response.status === 404) {
-          console.log("error 404!!!!");
-        } else {
+          reject(new Error("Page not found"));
+        } else if (response.ok) {
           return response.json();
         }
       })
