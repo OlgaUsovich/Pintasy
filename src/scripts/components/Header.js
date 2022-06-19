@@ -1,6 +1,7 @@
 import { CARDS } from "../localStorageApi/constants.js";
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { renderCards } from "./Сards.js";
+import { addMansoryLayout } from "../utils/helpers/helpers";
 
 const openDrop = ({ target }) => {
     const bordsMenuItem = document.querySelector("#dropdown-list");
@@ -22,6 +23,7 @@ function onSearchInput(event) {
     const searchCards = cards.filter((card) => card.description.toLowerCase().search(searchText) !== -1);
 
     renderCards(searchCards);
+    addMansoryLayout();
 }
 
 export { addHeaderListeners, onSearchInput };

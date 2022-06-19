@@ -1,6 +1,6 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS, CARDS } from "../localStorageApi/constants.js";
-import { createElement, capitalize } from "../utils/helpers/helpers.js";
+import {createElement, capitalize, addMansoryLayout} from "../utils/helpers/helpers.js";
 import { renderCards } from "./Сards.js";
 
 function createBoardItem(board) {
@@ -31,6 +31,7 @@ function onBoardClick({ target }) {
     const cards = getStorageData(CARDS);
     const boardCards = cards.filter((card) => board.cardsIds.includes(card.id));
     renderCards(boardCards);
+    addMansoryLayout();
 }
 
 export { createBoardItem, renderBoards };

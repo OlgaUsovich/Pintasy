@@ -3,6 +3,7 @@ import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
 import { getStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
 import { BOARDS, CARDS } from "./localStorageApi/constants.js";
+import { addMansoryLayout } from "./utils/helpers/helpers";
 
 init();
 
@@ -16,4 +17,6 @@ function init() {
 
     renderBoards(boards);
     renderCards(cards);
+
+    addMansoryLayout();
 }
