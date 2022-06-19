@@ -5,19 +5,18 @@ function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
     const imageContainer = createElement('div', 'position-relative');
     const image = createElement('img', 'card-image rounded-4');
-    const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75 z-index-1');
+    const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description', cardData.description);
     const cardMenu = createElement('div', 'card-menu d-none bg-secondary position-absolute rounded-4 p-3 bg-opacity-75 d-flex flex-column justify-content-center align-items-stretch gap-3');
-    const addBtn = createElement('button', 'btn btn-outline-secondary','Добавить на доску');
-    const complaintBtn = createElement('button', 'btn btn-outline-secondary','Пожаловаться');
+    const addBtn = createElement('button', 'btn btn-outline-dark','Add to board');
+    const complaintBtn = createElement('button', 'btn btn-outline-dark','Complain');
 
     card.id = cardData.id;
     menuBtn.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
-    cardMenu.id = 'card-menu';
 
     cardMenu.append(addBtn, complaintBtn);
     imageContainer.append(image, menuBtn, cardMenu);
@@ -31,8 +30,8 @@ function createCard(cardData) {
 
 function onCardMenuClick({target}){
     if(target.id === this.id){
-        const cards = document.getElementById('card-menu');
-        cards.classList.toggle('d-none');
+        const cardMenu = this.nextSibling;
+        cardMenu.classList.toggle('d-none');
     }
 }
 
