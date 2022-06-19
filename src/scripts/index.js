@@ -2,8 +2,11 @@ import { addHeaderListeners } from "./components/Header.js";
 import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сards.js";
 import { getStorageData, setTestData } from "./localStorageApi/localStorageApi.js";
-import { BOARDS, CARDS } from "./localStorageApi/constants.js";
+import { BOARDS } from "./localStorageApi/constants.js";
+import { getCards } from "./mockApi/mockApi.js"
+import { URL_CARDS } from "./mockApi/constants.js";
 import { addMansoryLayout } from "./utils/helpers/helpers";
+
 
 init();
 
@@ -13,10 +16,9 @@ function init() {
     setTestData();
 
     const boards = getStorageData(BOARDS);
-    const cards = getStorageData(CARDS);
 
     renderBoards(boards);
-    renderCards(cards);
-
-    addMansoryLayout();
+    getCards(URL_CARDS)
+     .then(renderCards)
+     .then(addMansoryLayout)
 }

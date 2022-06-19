@@ -10,16 +10,30 @@ function createCard(cardData) {
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description', cardData.description);
+    const cardMenu = createElement('div', 'card-menu d-none bg-secondary position-absolute rounded-4 p-3 bg-opacity-75 d-flex flex-column justify-content-center align-items-stretch gap-3');
+    const addBtn = createElement('button', 'btn btn-outline-dark','Add to board');
+    const complaintBtn = createElement('button', 'btn btn-outline-dark','Complain');
 
     card.id = cardData.id;
+    menuBtn.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
 
-    imageContainer.append(image, menuBtn);
+    cardMenu.append(addBtn, complaintBtn);
+    imageContainer.append(image, menuBtn, cardMenu);
     descriptionContainer.append(avatar, description);
     card.append(imageContainer, descriptionContainer);
 
+    menuBtn.addEventListener('click', onCardMenuClick);
+     
     return card
+}
+
+function onCardMenuClick({target}){
+    if(target.id === this.id){
+        const cardMenu = this.nextSibling;
+        cardMenu.classList.toggle('d-none');
+    }
 }
 
 function renderCards(cards) {

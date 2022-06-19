@@ -1,5 +1,4 @@
-const BOARDS = 'boards';
-const HIDDEN = 'hidden';
-const CARDS = 'cards';
+const BOARDS = "boards";
+const HIDDEN = "hidden";
 
-export { BOARDS, HIDDEN, CARDS };
+export { BOARDS, HIDDEN };
