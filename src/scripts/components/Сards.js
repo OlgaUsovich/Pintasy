@@ -27,7 +27,7 @@ function renderCards(cards) {
     while (cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
-    const hiddenCards = getStorageData("hidden");
+    const hiddenCards = getStorageData(HIDDEN);
 
     cards.forEach(card => {
         if (!hiddenCards.includes(card.id)) {
@@ -48,4 +48,13 @@ function addCardToBoard(cardId, boardId) {
     setStorageData(BOARDS, boards);
 }
 
-export { createCard, renderCards, addCardToBoard }
+function complainCard(cardId) {
+    const hiddenCards = getStorageData(HIDDEN);
+    cardId = card.id;
+    if (!hiddenCards) {
+        setStorageData(HIDDEN, []);
+    }
+    renderCards(cards)
+  }
+
+export { createCard, renderCards, addCardToBoard, complainCard }
