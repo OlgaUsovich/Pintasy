@@ -5,7 +5,7 @@ function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
     const imageContainer = createElement('div', 'position-relative');
     const image = createElement('img', 'card-image rounded-4');
-    const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
+    const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75 z-index-1');
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
     const avatar = createElement('img', 'card-avatar rounded-circle');
     const description = createElement('span', 'card-description', cardData.description);
@@ -13,17 +13,27 @@ function createCard(cardData) {
     const addBtn = createElement('button', 'btn btn-outline-secondary','Добавить на доску');
     const complaintBtn = createElement('button', 'btn btn-outline-secondary','Пожаловаться');
 
-
     card.id = cardData.id;
+    menuBtn.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
+    cardMenu.id = 'card-menu';
 
     cardMenu.append(addBtn, complaintBtn);
     imageContainer.append(image, menuBtn, cardMenu);
     descriptionContainer.append(avatar, description);
     card.append(imageContainer, descriptionContainer);
 
+    menuBtn.addEventListener('click', onCardMenuClick);
+     
     return card
+}
+
+function onCardMenuClick({target}){
+    if(target.id === this.id){
+        const cards = document.getElementById('card-menu');
+        cards.classList.toggle('d-none');
+    }
 }
 
 function renderCards(cards) {
