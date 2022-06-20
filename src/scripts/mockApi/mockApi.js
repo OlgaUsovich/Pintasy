@@ -1,6 +1,8 @@
-const getCards = (url) =>
+import {URL_CARDS} from "./constants";
+
+const getCards = () =>
   new Promise((resolve, reject) =>
-    fetch(url)
+    fetch(URL_CARDS)
       .then((response) => {
         if (response.status === 404) {
           reject(new Error("Page not found"));
@@ -8,7 +10,7 @@ const getCards = (url) =>
           return response.json();
         }
       })
-      .then((data) => resolve(data))
+      .then((cards) => resolve(cards))
       .catch((error) => reject(error))
   );
 
