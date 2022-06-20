@@ -4,7 +4,7 @@ import {
   setStorageData,
 } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
-import { renderBoards, renderModalBoard } from "./Board.js";
+import { renderModalBoard } from "./Board.js";
 
 function createCard(cardData) {
   const card = createElement("div", "p-2 card-item");
@@ -69,7 +69,7 @@ function openModalWindow({ target }) {
 }
 
 function closeModalWindow({ target }) {
-  if (target.id === "btn-close" || target.id === 'dropdown-menu-btn') {
+  if (target.id === "btn-close" || target.id === "dropdown-menu-btn") {
     const modalWindow = document.querySelector("#modal");
     modalWindow.style.display = "none";
   }
