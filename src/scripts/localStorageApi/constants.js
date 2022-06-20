@@ -1,4 +1,4 @@
 const BOARDS = "boards";
-const HIDDEN = "hidden";
+const REPORTED = "reported";
 
-export { BOARDS, HIDDEN };
+export { BOARDS, REPORTED };

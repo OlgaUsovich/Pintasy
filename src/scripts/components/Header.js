@@ -1,17 +1,17 @@
-import { renderCards } from "./Сards.js";
+import { renderCards } from "./Сard.js";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 
-const openDrop = ({ target }) => {
-  const bordsMenuItem = document.querySelector("#dropdown-list");
+const openDropdownMenu = ({ target }) => {
+  const boardsMenuItem = document.querySelector("#dropdown-list");
   if (target.id === "dropdown-menu-btn") {
-    bordsMenuItem.classList.toggle("d-block");
+    boardsMenuItem.classList.toggle("d-block");
   }
 };
 
-const addHeaderListeners = () => {
+const bindHeaderListeners = () => {
   const header = document.querySelector("#header");
-  header.addEventListener("click", openDrop);
+  header.addEventListener("click", openDropdownMenu);
   header.addEventListener("input", onSearchInput);
 };
 
@@ -27,4 +27,4 @@ function onSearchInput(event) {
     .then(renderCards)
 }
 
-export { addHeaderListeners, onSearchInput };
+export { bindHeaderListeners, onSearchInput };
