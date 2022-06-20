@@ -1,6 +1,4 @@
-import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { renderCards } from "./Сard.js";
-import { addMansoryLayout } from "../utils/helpers/helpers";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 
@@ -27,7 +25,6 @@ function onSearchInput(event) {
       )
     )
     .then(renderCards)
-    .then(addMansoryLayout);
 }
 
 export { addHeaderListeners, onSearchInput };

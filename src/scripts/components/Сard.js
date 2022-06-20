@@ -1,6 +1,8 @@
+import Masonry from "masonry-layout";
+
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
-import { BOARDS } from "../localStorageApi/constants.js";
+import { BOARDS, HIDDEN } from "../localStorageApi/constants.js";
 
 function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
@@ -41,13 +43,27 @@ function renderCards(cards) {
     while (cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
-    const hiddenCards = getStorageData("hidden");
+    const hiddenCards = getStorageData(HIDDEN);
 
     cards.forEach(card => {
         if (!hiddenCards.includes(card.id)) {
             cardsContainer.append(createCard(card));
         }
     })
+
+    let totalImagesLoaded = 0;
+    const totalImages = cards.reduce((acc, cur) => acc.add(cur.image).add(cur.avatar), new Set()).size;
+
+    cardsContainer.addEventListener("load", (e) => {
+        totalImagesLoaded += 1
+        if (totalImagesLoaded === totalImages) {
+            const masonry = new Masonry(cardsContainer, {
+                itemSelector: ".card-item",
+                gutter: 10,
+                fitWidth: true,
+            });
+        }
+    }, true)
 }
 
 function addCardToBoard(cardId, boardId) {
@@ -62,4 +78,14 @@ function addCardToBoard(cardId, boardId) {
     setStorageData(BOARDS, boards);
 }
 
-export { createCard, renderCards, addCardToBoard }
+function complainCard(cardId) {
+    if (!hiddenCards) {
+        setStorageData(HIDDEN, []);
+    }
+    const hiddenCards = getStorageData(HIDDEN);
+    hiddenCards.push(cardId);
+
+    setStorageData(HIDDEN, hiddenCards);
+}
+
+export { createCard, renderCards, addCardToBoard, complainCard }
