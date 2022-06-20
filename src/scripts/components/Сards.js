@@ -62,11 +62,14 @@ function openModalWindow({ target }) {
   if (target.id === "add-button") {
     modalWindow.style.display = "block";
   }
+
   const boards = getStorageData(BOARDS);
+
   renderModalBoard(boards);
 }
+
 function closeModalWindow({ target }) {
-  if (target.id === "btn-close") {
+  if (target.id === "btn-close" || target.id === 'dropdown-menu-btn') {
     const modalWindow = document.querySelector("#modal");
     modalWindow.style.display = "none";
   }
