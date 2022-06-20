@@ -49,12 +49,13 @@ function addCardToBoard(cardId, boardId) {
 }
 
 function complainCard(cardId) {
-    const hiddenCards = getStorageData(HIDDEN);
-    cardId = card.id;
     if (!hiddenCards) {
         setStorageData(HIDDEN, []);
     }
-    renderCards(cards)
-  }
+    const hiddenCards = getStorageData(HIDDEN);
+    hiddenCards.push(cardId);
+
+    setStorageData(HIDDEN, hiddenCards);
+}
 
 export { createCard, renderCards, addCardToBoard, complainCard }
