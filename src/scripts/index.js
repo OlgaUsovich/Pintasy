@@ -1,4 +1,4 @@
-import { addHeaderListeners } from "./components/Header.js";
+import { bindHeaderListeners } from "./components/Header.js";
 import { renderBoards } from "./components/Board.js";
 import { renderCards } from "./components/Сard.js";
 import {getStorageData, setTestData} from "./localStorageApi/localStorageApi.js";
@@ -10,8 +10,6 @@ import { URL_CARDS } from "./mockApi/constants.js";
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-    addHeaderListeners();
-
     setTestData();
 
     const boards = getStorageData(BOARDS);
@@ -19,4 +17,6 @@ function init() {
 
     getCards(URL_CARDS)
      .then(renderCards)
+
+    bindHeaderListeners();
 }
