@@ -1,6 +1,10 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
-import { createElement, capitalize, addMansoryLayout } from "../utils/helpers/helpers.js";
+import {
+  createElement,
+  capitalize,
+  addMansoryLayout,
+} from "../utils/helpers/helpers.js";
 import { renderCards } from "./Сards.js";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
@@ -27,8 +31,14 @@ function renderBoards(boards) {
   }
 }
 
-
-
+function renderModalBoard(boards) {
+  const boardList = document.querySelector("#modal-list-item-board");
+  for (const board of boards) {
+    const boardItem = createBoardItem(board);
+    boardItem.classList = "boards-btn";
+    boardList.append(boardItem);
+  }
+}
 function onBoardClick({ target }) {
   const boards = getStorageData(BOARDS);
   const board = boards.find((board) => board.id === target.parentElement.id);
