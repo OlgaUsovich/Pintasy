@@ -8,7 +8,7 @@ import { URL_CARDS } from "./mockApi/constants.js";
 import { addMansoryLayout } from "./utils/helpers/helpers";
 
 
-init();
+document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     addHeaderListeners();
@@ -16,8 +16,8 @@ function init() {
     setTestData();
 
     const boards = getStorageData(BOARDS);
-
     renderBoards(boards);
+
     getCards(URL_CARDS)
      .then(renderCards)
      .then(addMansoryLayout)
