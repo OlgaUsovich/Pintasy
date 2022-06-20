@@ -8,5 +8,14 @@ function closeModalWindow({target}) {
     
 }
 
-export {closeModalWindow}
+function openModalWindow({target}) {
+    const modalWindow = document.querySelector('#modal')
+    if(target.id === 'add-button') {
+        modalWindow.style.display = 'block'
+    }
+    const boards = getStorageData(BOARDS);
+    renderModalBoard(boards);
+      
+}
+export {closeModalWindow, openModalWindow}
 
