@@ -27,6 +27,8 @@ function renderBoards(boards) {
   }
 }
 
+
+
 function onBoardClick({ target }) {
   const boards = getStorageData(BOARDS);
   const board = boards.find((board) => board.id === target.parentElement.id);
@@ -36,4 +38,4 @@ function onBoardClick({ target }) {
     .then(addMansoryLayout);
 }
 
-export { createBoardItem, renderBoards };
+export { createBoardItem, renderBoards, renderModalBoard };

@@ -22,3 +22,5 @@ function init() {
      .then(renderCards)
      .then(addMansoryLayout)
 }
+
+const modalWindow = document.querySelector('#modal')

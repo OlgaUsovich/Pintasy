@@ -1,6 +1,7 @@
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
+import { renderBoards, renderModalBoard } from "./Board.js";
 
 function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
@@ -18,16 +19,23 @@ function createCard(cardData) {
     menuBtn.id = cardData.id;
     image.src = cardData.image;
     avatar.src = cardData.avatar;
+    addBtn.id = 'add-button'
 
     cardMenu.append(addBtn, complaintBtn);
     imageContainer.append(image, menuBtn, cardMenu);
     descriptionContainer.append(avatar, description);
     card.append(imageContainer, descriptionContainer);
 
+    
+    
     menuBtn.addEventListener('click', onCardMenuClick);
-     
+
+   
+
+
     return card
 }
+
 
 function onCardMenuClick({target}){
     if(target.id === this.id){
