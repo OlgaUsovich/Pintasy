@@ -1,3 +1,5 @@
+import Masonry from "masonry-layout";
+
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
@@ -48,6 +50,20 @@ function renderCards(cards) {
             cardsContainer.append(createCard(card));
         }
     })
+
+    let totalImagesLoaded = 0;
+    const totalImages = cards.reduce((acc, cur) => acc.add(cur.image).add(cur.avatar), new Set()).size;
+
+    cardsContainer.addEventListener("load", (e) => {
+        totalImagesLoaded += 1
+        if (totalImagesLoaded === totalImages) {
+            const masonry = new Masonry(cardsContainer, {
+                itemSelector: ".card-item",
+                gutter: 10,
+                fitWidth: true,
+            });
+        }
+    }, true)
 }
 
 function addCardToBoard(cardId, boardId) {
