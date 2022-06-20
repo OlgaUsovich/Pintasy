@@ -2,7 +2,7 @@ import Masonry from "masonry-layout";
 
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
-import { BOARDS, HIDDEN } from "../localStorageApi/constants.js";
+import { BOARDS, REPORTED } from "../localStorageApi/constants.js";
 
 function createCard(cardData) {
     const card = createElement('div', 'p-2 card-item');
@@ -43,7 +43,7 @@ function renderCards(cards) {
     while (cardsContainer.firstChild) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
-    const hiddenCards = getStorageData(HIDDEN);
+    const hiddenCards = getStorageData(REPORTED);
 
     cards.forEach(card => {
         if (!hiddenCards.includes(card.id)) {
@@ -79,13 +79,14 @@ function addCardToBoard(cardId, boardId) {
 }
 
 function complainCard(cardId) {
-    if (!hiddenCards) {
-        setStorageData(HIDDEN, []);
-    }
-    const hiddenCards = getStorageData(HIDDEN);
-    hiddenCards.push(cardId);
+    const reportedCards = getStorageData(REPORTED);
 
-    setStorageData(HIDDEN, hiddenCards);
+    if (!reportedCards) {
+        setStorageData(REPORTED, []);
+    }
+    reportedCards.push(cardId);
+
+    setStorageData(REPORTED, reportedCards);
 }
 
 export { createCard, renderCards, addCardToBoard, complainCard }
