@@ -18,5 +18,7 @@ function init() {
     getCards(URL_CARDS)
      .then(renderCards)
 
-    bindHeaderListeners();
+     bindHeaderListeners();
 }
+
+const modalWindow = document.querySelector('#modal')

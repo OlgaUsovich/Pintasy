@@ -19,7 +19,7 @@ function onSearchInput(event) {
   const search = document.querySelector("#input-header>input");
   const searchText = search.value.toLowerCase();
   getCards(URL_CARDS)
-    .then(cards =>
+    .then((cards) =>
       cards.filter(
         (card) => card.description.toLowerCase().search(searchText) !== -1
       )

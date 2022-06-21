@@ -27,6 +27,18 @@ function renderBoards(boards) {
   }
 }
 
+function renderModalBoards(boards) {
+  const boardList = document.querySelector("#modal-list-item-board");
+  while (boardList.firstChild) { 
+    boardList.removeChild(boardList.firstChild)
+  }
+
+  for (const board of boards) {
+    const boardItem = createBoardItem(board);
+    boardItem.classList = "boards-btn";
+    boardList.append(boardItem);
+  }
+}
 function onBoardClick({ target }) {
   const boards = getStorageData(BOARDS);
   const board = boards.find((board) => board.id === target.parentElement.id);
@@ -35,4 +47,4 @@ function onBoardClick({ target }) {
     .then(renderCards)
 }
 
-export { createBoardItem, renderBoards };
+export { createBoardItem, renderBoards, renderModalBoards };
