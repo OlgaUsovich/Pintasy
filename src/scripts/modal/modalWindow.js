@@ -6,6 +6,7 @@ function openModalWindow({ target }) {
     const modalWindow = document.querySelector("#modal");
     if (target.id === "add-button") {
       modalWindow.style.display = "block";
+      modalWindow.dataset.card = target.dataset.card;
     }
   
     const boards = getStorageData(BOARDS);
