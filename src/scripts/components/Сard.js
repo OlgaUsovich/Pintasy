@@ -22,6 +22,7 @@ function createCard({id: cardId, image: cardImage, description: cardDescription,
   image.src = cardImage;
   avatar.src = cardAvatar;
   addBtn.id = "add-button";
+  complaintBtn.id = "complain-btn";
 
   cardMenu.append(addBtn, complaintBtn);
   imageContainer.append(image, menuBtn, cardMenu);
@@ -33,7 +34,9 @@ function createCard({id: cardId, image: cardImage, description: cardDescription,
   menuBtn.addEventListener("click", onCardMenuClick);
 
   addBtn.addEventListener("click", openModalWindow);
+  complaintBtn.addEventListener("click", onComplainBtnClick);
   modalWindow.addEventListener("click", closeModalWindow);
+
 
   return card;
 }
@@ -94,6 +97,34 @@ function complainCard(cardId) {
     reportedCards.push(cardId);
 
     setStorageData(REPORTED, reportedCards);
+}
+
+function onComplainBtnClick({target}){
+    if(target.id === 'complain-btn'){
+    const modalWindow = document.getElementById('modal');
+
+    modalWindow.classList.add('d-block');
+
+    const complainForm = createElement('form');
+    const inputList = createElement('div', 'form-check d-flex flex-column justify-content-around');
+    const notRelevantInput = createElement('input', 'form-check-input', 'Not relevant to me');
+    const notRightLanguageInput = createElement('input', 'form-check-input');
+    const spamInput = createElement('input', 'form-check-input');
+    const badPictureInput = createElement('input', 'form-check-input');
+
+    notRelevantInput.id = 'not-relevant';
+    notRightLanguageInput.id = 'wrong-language';
+    spamInput.id = 'spam';
+    badPictureInput.id = 'bad-picture';
+    notRelevantInput.type = 'radio';
+    notRightLanguageInput.type = 'radio';
+    spamInput.type = 'radio';
+    badPictureInput.type = 'radio';
+
+    inputList.append(notRelevantInput, notRightLanguageInput, spamInput, badPictureInput);
+    complainForm.append(inputList);
+    modalWindow.append(complainForm);
+    }
 }
 
 export { createCard, renderCards, addCardToBoard, complainCard }
