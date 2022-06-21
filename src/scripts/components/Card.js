@@ -1,6 +1,6 @@
 import Masonry from "masonry-layout";
 
-import { createElement } from "../utils/helpers/helpers.js";
+import { createElement, createRadioBtnGroup } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS, REPORTED } from "../localStorageApi/constants.js";
 import { openModalWindow, closeModalWindow }  from "../modal/modalWindow.js"
@@ -99,32 +99,40 @@ function complainCard(cardId) {
     setStorageData(REPORTED, reportedCards);
 }
 
-function onComplainBtnClick({target}){
-    if(target.id === 'complain-btn'){
-    const modalWindow = document.getElementById('modal');
+function onComplainBtnClick({target}) {
+  if (target.id === 'complain-btn') {
 
-    modalWindow.classList.add('d-block');
-
-    const complainForm = createElement('form');
-    const inputList = createElement('div', 'form-check d-flex flex-column justify-content-around');
-    const notRelevantInput = createElement('input', 'form-check-input', 'Not relevant to me');
-    const notRightLanguageInput = createElement('input', 'form-check-input');
-    const spamInput = createElement('input', 'form-check-input');
-    const badPictureInput = createElement('input', 'form-check-input');
-
-    notRelevantInput.id = 'not-relevant';
-    notRightLanguageInput.id = 'wrong-language';
-    spamInput.id = 'spam';
-    badPictureInput.id = 'bad-picture';
-    notRelevantInput.type = 'radio';
-    notRightLanguageInput.type = 'radio';
-    spamInput.type = 'radio';
-    badPictureInput.type = 'radio';
-
-    inputList.append(notRelevantInput, notRightLanguageInput, spamInput, badPictureInput);
-    complainForm.append(inputList);
-    modalWindow.append(complainForm);
+    const radioBtnData = {
+      notRelevantInput: 'Not relevant to me',
+      notRightLanguageInput: 'Not in a language I understand',
+      spamInput: 'Seen Pin too many times',
+      badPictureInput: 'Blurry or pixelated image'
     }
+
+
+    const modalWindow = document.getElementById('modal');
+    const modalWindowForm = document.getElementById('modal-form');
+    const formContainer = document.getElementById('complain-container');
+    const formContainerBtns = document.getElementById('complain-container-btns');
+
+    if (formContainer) {
+      formContainer.remove();
+      formContainerBtns.remove();
+    }
+
+    const btnContainer = createElement('div', 'd-flex gap-3');
+    const submitBtn = createElement('button', 'btn btn-dark', "Send");
+    const closeBtn = createElement('button', 'btn btn-light', "Cancel");
+
+    submitBtn.type = "submit";
+    closeBtn.type = "button";
+    btnContainer.id = "complain-container-btns"
+
+    btnContainer.append(submitBtn, closeBtn);
+    modalWindowForm.append(createRadioBtnGroup(radioBtnData, 'complains'), btnContainer);
+
+    modalWindow.style.display = "block";
+  }
 }
 
 export { createCard, renderCards, addCardToBoard, complainCard }
