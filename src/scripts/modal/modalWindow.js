@@ -1,5 +1,5 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js"
-import { renderModalBoard } from "../components/Board.js"
+import { renderModalBoards } from "../components/Board.js"
 import { BOARDS } from "../localStorageApi/constants.js"
 
 function openModalWindow({ target }) {
@@ -9,7 +9,7 @@ function openModalWindow({ target }) {
     }
   
     const boards = getStorageData(BOARDS);
-    renderModalBoard(boards);
+    renderModalBoards(boards);
   }
 
   function closeModalWindow({ target }) {

@@ -31,8 +31,12 @@ function renderBoards(boards) {
   }
 }
 
-function renderModalBoard(boards) {
+function renderModalBoards(boards) {
   const boardList = document.querySelector("#modal-list-item-board");
+  while (boardList.firstChild) { 
+    boardList.removeChild(boardList.firstChild)
+  }
+
   for (const board of boards) {
     const boardItem = createBoardItem(board);
     boardItem.classList = "boards-btn";
@@ -48,4 +52,4 @@ function onBoardClick({ target }) {
     .then(addMansoryLayout);
 }
 
-export { createBoardItem, renderBoards, renderModalBoard };
+export { createBoardItem, renderBoards, renderModalBoards };

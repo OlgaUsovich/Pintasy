@@ -4,7 +4,7 @@ import {
   setStorageData,
 } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
-import { renderModalBoard } from "./Board.js";
+import { renderModalBoards } from "./Board.js";
 import {openModalWindow, closeModalWindow} from "../modal/modalWindow.js"
 
 function createCard(cardData) {
