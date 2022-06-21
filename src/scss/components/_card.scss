@@ -11,14 +11,26 @@
     width: 100%;
 }
 
+.image-container:hover .modal-menu {
+    display: block;
+}
+
 .modal-menu {
     z-index: 1;
     width: 32px;
     height: 32px;
     bottom: 5%;
     right: 5%;
+    background-image: url("/assets/points-btn.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
     border: none;
     cursor: pointer;
+}
+
+.modal-menu-close {
+    background-image: url("/assets/close-btn.png");
 }
 
 .card-avatar {

@@ -7,7 +7,7 @@ import { openModalWindow, closeModalWindow }  from "../modal/modalWindow.js"
 
 function createCard({id: cardId, image: cardImage, description: cardDescription, avatar: cardAvatar}) {
   const card = createElement('div', 'p-2 card-item');
-  const imageContainer = createElement('div', 'position-relative');
+  const imageContainer = createElement('div', 'image-container position-relative');
   const image = createElement('img', 'card-image rounded-4');
   const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
   const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
@@ -43,6 +43,8 @@ function onCardMenuClick({ target }) {
     const cardMenu = this.nextSibling;
     cardMenu.classList.toggle("d-none");
   }
+  const close = this;
+  close.classList.toggle("modal-menu-close");
 }
 
 function renderCards(cards) {

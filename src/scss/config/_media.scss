@@ -25,3 +25,18 @@ $screen-sm-max: 535px;
         }
     }
 }
+
+#cards {
+    @include sm {
+        .modal-menu {
+            display: block;
+        }
+        .image-container {
+            border-radius: 16px;
+            background-color: black;
+        }
+        .card-image:hover {
+            opacity: 0.75;
+            }
+    }
+}
