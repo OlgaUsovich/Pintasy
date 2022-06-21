@@ -12,7 +12,7 @@ function openModalWindow({ target }) {
     renderModalBoards(boards);
   }
 
-  function closeModalWindow({ target }) {
+function closeModalWindow({ target }) {
     if (target.id === "btn-close" || target.id === "dropdown-menu-btn") {
       const modalWindow = document.querySelector("#modal");
       modalWindow.style.display = "none";

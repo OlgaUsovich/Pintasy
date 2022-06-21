@@ -1,0 +1,27 @@
+$screen-sm-max: 535px;
+@mixin sm {
+    @media(max-width: #{$screen-sm-max}) {
+        @content;
+    }
+}
+
+#header {
+    @include sm {
+        display:flex;
+        flex-wrap: wrap;
+        .btn.btn-dark.fw-bold {
+            padding: 7px 40px;
+        }
+        .btn.btn-secondary.dropdown-toggle.fw-bold.text-bg-dark {
+            padding: 7px 30px;
+        }
+        #input-header {
+            max-width: 100%;
+            padding-top: 1rem;
+            order: 90;
+        }
+        #dropdown-list {
+            right: -50px;
+        }
+    }
+}

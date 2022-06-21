@@ -1,11 +1,7 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
-import {
-  createElement,
-  capitalize,
-  addMansoryLayout,
-} from "../utils/helpers/helpers.js";
-import { renderCards } from "./Сards.js";
+import { createElement, capitalize } from "../utils/helpers/helpers.js";
+import { renderCards } from "./Сard.js";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 
@@ -49,7 +45,6 @@ function onBoardClick({ target }) {
   getCards(URL_CARDS)
     .then((cards) => cards.filter((card) => board.cardsIds.includes(card.id)))
     .then(renderCards)
-    .then(addMansoryLayout);
 }
 
 export { createBoardItem, renderBoards, renderModalBoards };

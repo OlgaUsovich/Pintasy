@@ -1,6 +1,5 @@
-import cardsJson from "../../data/cards.json";
 import boardsJson from "../../data/boards.json";
-import { BOARDS, HIDDEN } from "./constants.js";
+import { BOARDS, REPORTED } from "./constants.js";
 
 const getStorageData = (key) => {
   const storageData = JSON.parse(localStorage.getItem(key));
@@ -16,8 +15,8 @@ const setTestData = () => {
   if (!getStorageData(BOARDS)) {
     setStorageData(BOARDS, boardsJson);
   }
-  if (!getStorageData(HIDDEN)) {
-    setStorageData(HIDDEN, []);
+  if (!getStorageData(REPORTED)) {
+    setStorageData(REPORTED, []);
   }
 };
 
