@@ -54,7 +54,7 @@ function renderCards(cards) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
     const hiddenCards = getStorageData(REPORTED);
-    const cardsToRender = cards.filter(card => !hiddenCards.includes(card.id));
+    const cardsToRender = hiddenCards ? cards.filter(card => !hiddenCards.includes(card.id)) : cards;
 
     cardsToRender.forEach(card => cardsContainer.append(createCard(card)));
 
@@ -86,10 +86,11 @@ function addCardToBoard(cardId, boardId) {
 }
 
 function complainCard(cardId) {
-    const reportedCards = getStorageData(REPORTED);
+    let reportedCards = getStorageData(REPORTED);
 
     if (!reportedCards) {
         setStorageData(REPORTED, []);
+        reportedCards = [];
     }
     reportedCards.push(cardId);
 
