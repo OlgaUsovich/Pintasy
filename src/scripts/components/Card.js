@@ -112,6 +112,7 @@ function onComplainBtnClick({target}) {
     const formContainer = document.getElementById('complain-container');
     const formContainerBtns = document.getElementById('complain-container-btns');
     const boardsList = document.getElementById('modal-list-item-board');
+    const titleModal = document.getElementById('modal-title');
 
     if (formContainer) {
       formContainer.remove();
@@ -120,6 +121,10 @@ function onComplainBtnClick({target}) {
 
     if (boardsList) {
         boardsList.remove();
+    }
+
+    if (titleModal) {
+      titleModal.remove();
     }
 
     const btnContainer = createElement('div', 'd-flex gap-3');
@@ -134,13 +139,13 @@ function onComplainBtnClick({target}) {
 
     btnContainer.addEventListener('click', onComplainBtnsClick);
 
-    const titleComplainBtn = createElement('h3')
-    titleComplainBtn.textContent = 'Do you have a moment? Please tell us why.'
-    titleComplainBtn.classList = 'position-absolute mt-5 ms-2'
+    const titleComplainBtn = createElement('h3');
+    titleComplainBtn.id = 'modal-title';
+    titleComplainBtn.textContent = 'Do you have a moment? Please tell us why.';
+    titleComplainBtn.classList = 'position-absolute mt-5 ms-2';
 
     btnContainer.append(submitBtn, closeBtn);
     modalWindowForm.append(createRadioBtnGroup(radioBtnData, 'complains'),  titleComplainBtn, btnContainer);
-    console.log(modalWindowForm)
     modalWindow.dataset.card = target.parentElement.previousSibling.id
     modalWindow.style.display = "block";
   }
