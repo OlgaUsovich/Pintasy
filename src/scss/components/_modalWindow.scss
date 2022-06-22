@@ -45,5 +45,32 @@
     }
 }
 
+#complain-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 150px;
+    .form-check-input{
+        margin-left: 10px;
+    }
+    .form-check-label{
+        padding-left: 20px;
+    }
+}
+
+#complain-container-btns{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    bottom: 20px;
+    right: 0px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
 
 
