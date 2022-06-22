@@ -1,13 +1,13 @@
 import Masonry from "masonry-layout";
-import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
-import { REPORTED, BOARDS } from "../localStorageApi/constants.js";
 import { createElement, createRadioBtnGroup, showMessage } from "../utils/helpers/helpers.js";
-import { openModalWindow, closeModalWindow } from "../modal/modalWindow.js";
-import { getCards } from "../mockApi/mockApi.js";
+import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
+import { BOARDS, REPORTED } from "../localStorageApi/constants.js";
+import { openModalWindow, closeModalWindow } from "../modal/modalWindow.js"
+import { getCards } from "../mockApi/mockApi";
 
-function createCard({id: cardId, image: cardImage, description: cardDescription, avatar: cardAvatar}) {
+function createCard({ id: cardId, image: cardImage, description: cardDescription, avatar: cardAvatar }) {
     const card = createElement('div', 'p-2 card-item');
-    const imageContainer = createElement('div', 'position-relative');
+    const imageContainer = createElement('div', 'image-container position-relative');
     const image = createElement('img', 'card-image rounded-4');
     const menuBtn = createElement('button', 'modal-menu rounded-circle position-absolute bg-aqua bg-opacity-75');
     const descriptionContainer = createElement('div', 'd-flex gap-3 mt-2');
@@ -41,11 +41,18 @@ function createCard({id: cardId, image: cardImage, description: cardDescription,
     return card;
 }
 
-function onCardMenuClick({target}) {
-    if (target.id === this.id) {
-        const cardMenu = this.nextSibling;
-        cardMenu.classList.toggle("d-none");
+function onCardMenuClick({ target }) {
+  document.querySelectorAll(".card-item").forEach(card => {
+    if (card.id !== target.id) {
+      card.querySelector(".modal-menu").classList.remove("modal-menu-close");
+      card.querySelector(".card-menu").classList.add("d-none");
     }
+  })
+  if (target.id === this.id) {
+    const cardMenu = this.nextSibling;
+    cardMenu.classList.toggle("d-none");
+  }
+  this.classList.toggle("modal-menu-close");
 }
 
 function renderCards(cards) {
