@@ -47,7 +47,13 @@ function renderModalBoards(boards) {
     }
 
     const newBoardList = createElement("ul");
+    const titleAddToBoard = createElement('h3');
+
+    titleAddToBoard.classList = 'text-center mt-5';
+    titleAddToBoard.textContent = 'Select a Board';
     newBoardList.id = "modal-list-item-board";
+
+    newBoardList.append(titleAddToBoard);
     modalForm.append(newBoardList);
 
     for (const board of boards) {
