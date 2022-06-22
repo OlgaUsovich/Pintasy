@@ -4,7 +4,6 @@ $screen-sm-max: 535px;
     @media(max-width: #{$screen-sm-max}) {
         @content;
     }
-
 }
 
 #header {
