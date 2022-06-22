@@ -1,7 +1,7 @@
 import { getStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS } from "../localStorageApi/constants.js";
 import { createElement, capitalize } from "../utils/helpers/helpers.js";
-import { renderCards } from "./Сard.js";
+import { renderCards } from "./Card.js";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 

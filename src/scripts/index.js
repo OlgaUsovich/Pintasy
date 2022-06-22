@@ -1,6 +1,6 @@
 import { bindHeaderListeners } from "./components/Header.js";
 import { renderBoards } from "./components/Board.js";
-import { renderCards } from "./components/Сard.js";
+import { renderCards } from "./components/Card.js";
 import {getStorageData, setTestData} from "./localStorageApi/localStorageApi.js";
 import { BOARDS } from "./localStorageApi/constants.js";
 import { getCards } from "./mockApi/mockApi.js"

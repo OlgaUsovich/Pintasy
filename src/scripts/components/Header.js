@@ -1,4 +1,4 @@
-import { renderCards } from "./Сard.js";
+import { renderCards } from "./Card.js";
 import { getCards } from "../mockApi/mockApi.js";
 import { URL_CARDS } from "../mockApi/constants.js";
 
