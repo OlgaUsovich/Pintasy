@@ -4,9 +4,9 @@ import { BOARDS } from "../localStorageApi/constants.js"
 
 function openModalWindow({ target }) {
     const modalWindow = document.querySelector("#modal");
+    modalWindow.dataset.card = target.dataset.card;
     if (target.id === "add-button") {
       modalWindow.style.display = "block";
-      modalWindow.dataset.card = target.dataset.card;
     }
   
     const boards = getStorageData(BOARDS);
@@ -20,4 +20,4 @@ function closeModalWindow({ target }) {
     }
   }
 
-  export {openModalWindow, closeModalWindow}
+  export { openModalWindow, closeModalWindow }

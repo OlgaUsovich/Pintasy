@@ -1,9 +1,9 @@
-import {getStorageData} from "../localStorageApi/localStorageApi.js";
-import {BOARDS} from "../localStorageApi/constants.js";
-import {createElement, capitalize, showMessage} from "../utils/helpers/helpers.js";
-import {addCardToBoard, renderCards} from "./Сard.js";
-import {getCards} from "../mockApi/mockApi.js";
-import {URL_CARDS} from "../mockApi/constants.js";
+import { getStorageData } from "../localStorageApi/localStorageApi.js";
+import { BOARDS } from "../localStorageApi/constants.js";
+import { createElement, capitalize, showMessage } from "../utils/helpers/helpers.js";
+import { renderCards, addCardToBoard } from "./Card.js";
+import { getCards } from "../mockApi/mockApi.js";
+import { URL_CARDS } from "../mockApi/constants.js";
 
 function createBoardItem(board) {
     const boardItem = createElement("li", "");
@@ -29,12 +29,26 @@ function renderBoards(boards) {
 }
 
 function renderModalBoards(boards) {
-    const boardList = document.querySelector("#modal-list-item-board");
-    const cardId = document.querySelector("#modal").dataset.card;
+    const modalWindow = document.getElementById("modal");
+    const modalForm = document.getElementById("modal-form");
+    const cardId = modalWindow.dataset.card;
 
-    while (boardList.firstChild) {
-        boardList.removeChild(boardList.firstChild)
+    const radioForm = document.getElementById('complain-container');
+    const radioFormButtons = document.getElementById('complain-container-btns');
+    const boardList = document.getElementById("modal-list-item-board");
+
+    if (radioForm) {
+        radioForm.remove();
+        radioFormButtons.remove();
     }
+
+    if (boardList) {
+        boardList.remove();
+    }
+
+    const newBoardList = createElement("ul");
+    newBoardList.id = "modal-list-item-board";
+    modalForm.append(newBoardList);
 
     for (const board of boards) {
         const boardItem = createBoardItem(board);
@@ -46,7 +60,7 @@ function renderModalBoards(boards) {
         }
 
         boardItem.classList = "boards-btn";
-        boardList.append(boardItem);
+        newBoardList.append(boardItem);
     }
 }
 
