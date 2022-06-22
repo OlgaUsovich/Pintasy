@@ -36,6 +36,7 @@ function renderModalBoards(boards) {
     const radioForm = document.getElementById('complain-container');
     const radioFormButtons = document.getElementById('complain-container-btns');
     const boardList = document.getElementById("modal-list-item-board");
+    const modalTitle = document.getElementById("modal-title");
 
     if (radioForm) {
         radioForm.remove();
@@ -46,8 +47,19 @@ function renderModalBoards(boards) {
         boardList.remove();
     }
 
+    if (modalTitle) {
+        modalTitle.remove();
+    }
+
     const newBoardList = createElement("ul");
+    const titleAddToBoard = createElement('h3');
+
+    titleAddToBoard.classList = 'text-center mt-5';
+    titleAddToBoard.textContent = 'Select a Board';
+    titleAddToBoard.id = "modal-title";
     newBoardList.id = "modal-list-item-board";
+
+    newBoardList.append(titleAddToBoard);
     modalForm.append(newBoardList);
 
     for (const board of boards) {
@@ -79,7 +91,7 @@ function onModalBoardClick({target}) {
 
     const boards = getStorageData(BOARDS);
     const board = boards.find(board => board.id === boardId);
-    const messageText = `Card added on ${board.name}`;
+    const messageText = `Card added on board "${board.name}"`;
     showMessage(messageText, 'text-bg-success', 'btn-close-white');
 }
 
