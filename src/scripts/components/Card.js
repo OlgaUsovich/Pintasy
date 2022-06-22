@@ -16,7 +16,7 @@ function createCard({id: cardId, image: cardImage, description: cardDescription,
     const cardMenu = createElement('div', 'card-menu d-none bg-secondary position-absolute rounded-4 p-3 bg-opacity-75 d-flex flex-column justify-content-center align-items-stretch gap-3');
     const addBtn = createElement('button', 'btn btn-outline-dark', 'Add to board');
     const complaintBtn = createElement('button', 'btn btn-outline-dark', 'Complain');
-
+    
     card.id = cardId;
     menuBtn.id = cardId;
     image.src = cardImage;
@@ -134,9 +134,13 @@ function onComplainBtnClick({target}) {
 
     btnContainer.addEventListener('click', onComplainBtnsClick);
 
+    const titleComplainBtn = createElement('h3')
+    titleComplainBtn.textContent = 'Do you have a moment? Please tell us why.'
+    titleComplainBtn.classList = 'position-absolute mt-5 ms-2'
+
     btnContainer.append(submitBtn, closeBtn);
-    modalWindowForm.append(createRadioBtnGroup(radioBtnData, 'complains'), btnContainer);
-    
+    modalWindowForm.append(createRadioBtnGroup(radioBtnData, 'complains'),  titleComplainBtn, btnContainer);
+    console.log(modalWindowForm)
     modalWindow.dataset.card = target.parentElement.previousSibling.id
     modalWindow.style.display = "block";
   }
