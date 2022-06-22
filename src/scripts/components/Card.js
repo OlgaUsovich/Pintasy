@@ -1,8 +1,9 @@
 import Masonry from "masonry-layout";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 import { REPORTED, BOARDS } from "../localStorageApi/constants.js";
-import { createElement, createRadioBtnGroup } from "../utils/helpers/helpers.js";
+import { createElement, createRadioBtnGroup, showMessage } from "../utils/helpers/helpers.js";
 import { openModalWindow, closeModalWindow } from "../modal/modalWindow.js";
+import { getCards } from "../mockApi/mockApi.js";
 
 function createCard({id: cardId, image: cardImage, description: cardDescription, avatar: cardAvatar}) {
     const card = createElement('div', 'p-2 card-item');
@@ -53,15 +54,12 @@ function renderCards(cards) {
         cardsContainer.removeChild(cardsContainer.firstChild);
     }
     const hiddenCards = getStorageData(REPORTED);
+    const cardsToRender = cards.filter(card => !hiddenCards.includes(card.id));
 
-    cards.forEach(card => {
-        if (!hiddenCards.includes(card.id)) {
-            cardsContainer.append(createCard(card));
-        }
-    })
+    cardsToRender.forEach(card => cardsContainer.append(createCard(card)));
 
     let totalImagesLoaded = 0;
-    const totalImages = cards.reduce((acc, cur) => acc.add(cur.image).add(cur.avatar), new Set()).size;
+    const totalImages = cardsToRender.reduce((acc, cur) => acc.add(cur.image).add(cur.avatar), new Set()).size;
 
     cardsContainer.addEventListener("load", (e) => {
         totalImagesLoaded += 1
@@ -108,7 +106,6 @@ function onComplainBtnClick({target}) {
       badPictureInput: 'Blurry or pixelated image'
     }
 
-
     const modalWindow = document.getElementById('modal');
     const modalWindowForm = document.getElementById('modal-form');
     const formContainer = document.getElementById('complain-container');
@@ -128,15 +125,36 @@ function onComplainBtnClick({target}) {
     const submitBtn = createElement('button', 'btn btn-dark', "Send");
     const closeBtn = createElement('button', 'btn btn-light', "Cancel");
 
+    submitBtn.id = "send-complain";
+    closeBtn.id = "cancel";
     submitBtn.type = "submit";
     closeBtn.type = "button";
     btnContainer.id = "complain-container-btns"
 
+    btnContainer.addEventListener('click', onComplainBtnsClick);
+
     btnContainer.append(submitBtn, closeBtn);
     modalWindowForm.append(createRadioBtnGroup(radioBtnData, 'complains'), btnContainer);
-
+    
+    modalWindow.dataset.card = target.parentElement.previousSibling.id
     modalWindow.style.display = "block";
   }
+}
+
+function onComplainBtnsClick (event) {
+    event.preventDefault();
+    const modalWindow = document.getElementById("modal");
+    if (event.target.id === "send-complain") {
+        const cardId = modalWindow.dataset.card;
+        complainCard(cardId);
+        modalWindow.style.display = "none";
+        const messageText = "Card is hidden"
+        showMessage(messageText, 'text-bg-danger', 'btn-close-white');
+        getCards().then(renderCards)
+    } else if (event.target.id === "cancel") {
+        modalWindow.style.display = "none";
+    }
+    
 }
 
 export { createCard, renderCards, addCardToBoard, complainCard }

@@ -60,7 +60,6 @@ function renderModalBoards(boards) {
         }
 
         boardItem.classList = "boards-btn";
-        console.log(newBoardList)
         newBoardList.append(boardItem);
     }
 }
