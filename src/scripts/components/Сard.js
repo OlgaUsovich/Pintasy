@@ -38,6 +38,12 @@ function createCard({ id: cardId, image: cardImage, description: cardDescription
 }
 
 function onCardMenuClick({ target }) {
+  document.querySelectorAll(".card-item").forEach(card => {
+    if (card.id !== target.id) {
+      card.querySelector(".modal-menu").classList.remove("modal-menu-close");
+      card.querySelector(".card-menu").classList.add("d-none");
+    }
+  })
   if (target.id === this.id) {
     const cardMenu = this.nextSibling;
     cardMenu.classList.toggle("d-none");
