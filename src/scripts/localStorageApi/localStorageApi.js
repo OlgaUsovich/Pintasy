@@ -11,13 +11,10 @@ const setStorageData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-const setTestData = () => {
+const setBoardsData = () => {
   if (!getStorageData(BOARDS)) {
     setStorageData(BOARDS, boardsJson);
   }
-  if (!getStorageData(REPORTED)) {
-    setStorageData(REPORTED, []);
-  }
 };
 
-export { getStorageData, setStorageData, setTestData };
+export { getStorageData, setStorageData, setBoardsData };
