@@ -6,6 +6,10 @@
 .image-container {
     border-radius: 17px;
     background-color: black;
+
+    &:hover .card-image {
+        opacity: 0.75;
+    }
 }
 
 .card-item {
@@ -14,10 +18,6 @@
 
 .card-image {
     width: 100%;
-}
-
-.card-image:hover {
-    opacity: 0.75;
 }
 
 .image-container:hover .modal-menu {
@@ -33,9 +33,11 @@
     background-image: url("/assets/points-btn.png");
     background-position: center;
     background-repeat: no-repeat;
-    display: none;
     border: none;
-    cursor: pointer;
+
+    &:not(.modal-menu-close) {
+        display: none;
+    }
 }
 
 .modal-menu-close {
