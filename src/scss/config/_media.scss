@@ -4,6 +4,7 @@ $screen-sm-max: 535px;
     @media(max-width: #{$screen-sm-max}) {
         @content;
     }
+
 }
 
 #header {
@@ -35,6 +36,10 @@ $screen-sm-max: 535px;
     @include sm {
         .modal-menu {
             display: block;
+        }
+
+        .card-image:hover {
+            opacity: 100;
         }
     }
 }

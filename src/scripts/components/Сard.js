@@ -1,5 +1,4 @@
 import Masonry from "masonry-layout";
-
 import { createElement } from "../utils/helpers/helpers.js";
 import { getStorageData, setStorageData } from "../localStorageApi/localStorageApi.js";
 import { BOARDS, REPORTED } from "../localStorageApi/constants.js";
