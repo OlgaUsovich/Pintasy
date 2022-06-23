@@ -16,24 +16,21 @@ function createCard({ id: cardId, image: cardImage, description: cardDescription
     const cardMenu = createElement('div', 'card-menu d-none bg-secondary position-absolute rounded-4 p-3 bg-opacity-75 d-flex flex-column justify-content-center align-items-stretch gap-3');
     const addBtn = createElement('button', 'btn btn-outline-dark', 'Add to board');
     const complaintBtn = createElement('button', 'btn btn-outline-dark', 'Complain');
+    const modalWindow = document.querySelector("#modal");
     
     card.id = cardId;
     menuBtn.id = cardId;
     image.src = cardImage;
     avatar.src = cardAvatar;
     addBtn.id = "add-button";
-    complaintBtn.id = "complain-btn";
     addBtn.dataset.card = cardId;
+    complaintBtn.id = "complain-btn";
 
     cardMenu.append(addBtn, complaintBtn);
     imageContainer.append(image, menuBtn, cardMenu);
     descriptionContainer.append(avatar, description);
     card.append(imageContainer, descriptionContainer);
-
-    const modalWindow = document.querySelector("#modal");
-
     menuBtn.addEventListener("click", onCardMenuClick);
-
     addBtn.addEventListener("click", openModalWindow);
     complaintBtn.addEventListener("click", onComplainBtnClick);
     modalWindow.addEventListener("click", closeModalWindow);
@@ -142,7 +139,7 @@ function onComplainBtnClick({target}) {
     closeBtn.id = "cancel";
     submitBtn.type = "submit";
     closeBtn.type = "button";
-    btnContainer.id = "complain-container-btns"
+    btnContainer.id = "complain-container-btns";
 
     btnContainer.addEventListener('click', onComplainBtnsClick);
 
@@ -165,7 +162,7 @@ function onComplainBtnsClick (event) {
         const cardId = modalWindow.dataset.card;
         complainCard(cardId);
         modalWindow.style.display = "none";
-        const messageText = "Card is hidden"
+        const messageText = "Card is hidden";
         showMessage(messageText, 'text-bg-danger', 'btn-close-white');
         getCards().then(renderCards)
     } else if (event.target.id === "cancel") {
